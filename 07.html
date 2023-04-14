@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 07</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="distance">Distância percorrida:</label>
+        <input type="number" id="distance">
+
+        <label for="fuel">Combustível gasto:</label>
+        <input type="number" id="fuel">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="avarage">Consumo médio:</label>
+    <input type="number" id="avarage" disabled>
+
+    <script>
+        function calc() {
+            const distance = parseFloat(document.getElementById("distance").value);
+            const fuel = parseFloat(document.getElementById("fuel").value);
+
+            const avarage = distance / fuel
+
+            document.getElementById("fuel").value = fuel.toFixed(1);
+            document.getElementById("avarage").value = avarage.toFixed(3);
+        }
+    </script>
+</body>
+
+</html>

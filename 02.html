@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 02</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="base">Base do retângulo:</label>
+        <input type="number" id="base" step="0.1">
+
+        <label for="height">Altura do retângulo:</label>
+        <input type="number" id="height" step="0.1">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="area">Área:</label>
+    <input type="number" id="area" disabled>
+
+    <label for="perimeter">Perímetro:</label>
+    <input type="number" id="perimeter" disabled>
+
+    <label for="diagonal">Diagonal:</label>
+    <input type="number" id="diagonal" disabled>
+
+    <script>
+        function calc() {
+            const base = parseFloat(document.getElementById("base").value);
+            const height = parseFloat(document.getElementById("height").value);
+
+            const area = base * height;
+            const perimeter = 2 * (base + height)
+            const diagonal = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2));
+
+            document.getElementById("base").value = area.toFixed(1);
+            document.getElementById("height").value = height.toFixed(1);
+            document.getElementById("area").value = area.toFixed(4);
+            document.getElementById("perimeter").value = perimeter.toFixed(4);
+            document.getElementById("diagonal").value = diagonal.toFixed(4);
+        }
+    </script>
+</body>
+
+</html>

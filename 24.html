@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 24</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="firstValue">Digite o primeiro número:</label>
+        <input type="number" id="firstValue">
+        <br />
+
+        <label for="secondValue">Digite o segundo número:</label>
+        <input type="number" id="secondValue">
+        <br />
+
+        <label for="thirdValue">Digite o terceiro número:</label>
+        <input type="number" id="thirdValue">
+        <br />
+
+        <label for="fourthValue">Digite o quarto número:</label>
+        <input type="number" id="fourthValue">
+        <br />
+
+        <label for="fifthValue">Digite o quinto número:</label>
+        <input type="number" id="fifthValue">
+        <br />
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label id="result"></label>
+
+    <script>
+        function calc() {
+            const firstValue = parseFloat(document.getElementById("firstValue").value);
+            const secondValue = parseFloat(document.getElementById("secondValue").value);
+            const thirdValue = parseFloat(document.getElementById("thirdValue").value);
+            const fourthValue = parseFloat(document.getElementById("fourthValue").value);
+            const fifthValue = parseFloat(document.getElementById("fifthValue").value);
+
+            const numArr = [firstValue, secondValue,thirdValue,fourthValue, fifthValue];
+
+            const result = numArr.sort(function (first, second){
+                return first - second
+            }).join(", ")
+
+            document.getElementById("result").textContent = `Ordenados: ${result}`;
+        }
+    </script>
+</body>
+
+</html>

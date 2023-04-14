@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 22</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="multiplicationTable">Deseja a tabuada para qual valor?</label>
+        <input type="number" id="multiplicationTable">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <pre id="result"></pre>
+
+    <script>
+        function calc() {
+            const multiplicationTable = parseFloat(document.getElementById("multiplicationTable").value);
+
+            let result = "";
+
+            for (let i = 1; i <= 10; i++) {
+                result += `${multiplicationTable} x ` + i + ` = ${multiplicationTable * i}` + "\n";
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+
+</html>

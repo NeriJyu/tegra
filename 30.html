@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 30</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="value">Número:</label>
+        <input type="number" id="value">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="result">Saída:</label>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function calc() {
+            const value = parseFloat(document.getElementById("value").value);
+
+            const units = ['', 'Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove'];
+            const dozens = ['', 'Dez', 'Vinte', 'Trinta', 'Quarenta', 'Cinquenta', 'Sessenta', 'Setenta', 'Oitenta', 'Noventa'];
+            const tenToNineteen = {
+                10: 'Dez',
+                11: 'Onze',
+                12: 'Doze',
+                13: 'Treze',
+                14: 'Quatorze',
+                15: 'Quinze',
+                16: 'Dezesseis',
+                17: 'Dezessete',
+                18: 'Dezoito',
+                19: 'Dezenove'
+            };
+
+            let result = "";
+
+            if (value === 0) {
+                result = 'Zero';
+            } else if (tenToNineteen[value]) {
+                result = tenToNineteen[value];
+            } else {
+                let dozen = Math.floor(value / 10);
+                let unit = value % 10;
+
+                if (dozen > 0) {
+                    result = dozens[dozen];
+                    if (unit > 0) {
+                        result += ' e ' + units[unit];
+                    }
+                } else {
+                    result = units[unit];
+                }
+            }
+
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+
+</html>

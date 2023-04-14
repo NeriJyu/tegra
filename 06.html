@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 06</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="name">Nome:</label>
+        <input type="text" id="name">
+
+        <label for="valuePerHour">Valor por hora:</label>
+        <input type="number" id="valuePerHour">
+
+        <label for="hoursWorked">Horas trabalhadas:</label>
+        <input type="number" id="hoursWorked">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label id="result"></label>
+
+    <script>
+        function calc() {
+            let name = document.getElementById("name").value;
+            let valuePerHour = parseFloat(document.getElementById("valuePerHour").value);
+            let hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
+
+            let message = `O pagamento para ${name} deve ser ${valuePerHour * hoursWorked}`
+
+            document.getElementById("valuePerHour").value = valuePerHour.toFixed(2);
+            document.getElementById("result").textContent = message;
+        }
+    </script>
+</body>
+
+</html>

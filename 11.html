@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 11</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="first">Digite a primeira nota:</label>
+        <input type="number" id="first">
+
+        <label for="second">Digite a segunda nota:</label>
+        <input type="number" id="second">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="finalGrade">Nota final:</label>
+    <input type="number" id="finalGrade" disabled>
+    <br />
+    <label id="result"></label>
+
+    <script>
+        function calc() {
+            const first = parseFloat(document.getElementById("first").value);
+            const second = parseFloat(document.getElementById("second").value);
+
+            const finalGrade = first + second;
+
+            document.getElementById("first").value = first.toFixed(1);
+            document.getElementById("second").value = second.toFixed(1);
+            document.getElementById("finalGrade").value = finalGrade.toFixed(1);
+            document.getElementById("result").textContent = finalGrade >= 60 ? 'Aprovado' : 'Reprovado';
+        }
+    </script>
+</body>
+
+</html>

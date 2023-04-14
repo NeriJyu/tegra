@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 18</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <p>Você vai digitar a temperatura em qual escala (C/F)?</p>
+        <select id="scale">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select>
+
+        <br />
+
+        <label for="temperature">Digite a temperatura:</label>
+        <input type="number" id="temperature">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label id="result"></label>
+
+    <script>
+        function calc() {
+            const scale = document.getElementById("scale").value;
+            const temperature = parseFloat(document.getElementById("temperature").value);
+
+            if (scale == "C") {
+                const tempF = (temperature * 1.8) + 32;
+
+                document.getElementById("result").innerHTML = "Temperatura equivalente em Fahrenheit: " + tempF.toFixed(2);
+            } else {
+                const tempC = (temperature - 32) / 1.8;
+
+                document.getElementById("result").innerHTML = "Temperatura equivalente em Celsius: " + tempC.toFixed(2);
+            }
+        }
+    </script>
+</body>
+
+</html>

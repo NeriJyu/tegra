@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 15</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="glucose">Digite a medida da glicose:</label>
+        <input type="number" id="glucose">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="classification">Classificação:</label>
+    <input type="text" id="classification" disabled>
+
+    <script>
+        function calc() {
+            const glucose = parseFloat(document.getElementById("glucose").value);
+
+            if (glucose <= 100) {
+                document.getElementById("classification").value = "Normal";
+            } else if (glucose > 100 && glucose <= 140) {
+                document.getElementById("classification").value = "Elevado";
+            } else {
+                document.getElementById("classification").value = "Diabetes";
+            }
+
+            document.getElementById("glucose").value = glucose.toFixed(1);
+        }
+    </script>
+</body>
+
+</html>

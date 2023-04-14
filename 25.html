@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 25</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="day">Dia de Nascimento:</label>
+        <input type="number" id="day">
+
+        <label for="month">Mês de Nascimento:</label>
+        <input type="number" id="month">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="result">Signo:</label>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function calc() {
+            const day = parseFloat(document.getElementById("day").value);
+            const month = parseFloat(document.getElementById("month").value);
+
+            let result = "";
+
+            if ((month == 3 && day >= 21) || (month == 4 && day <= 20)) {
+                result = "Áries";
+            } else if ((month == 4 && day >= 21) || (month == 5 && day <= 20)) {
+                result = "Touro";
+            } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+                result = "Gêmeos";
+            } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
+                result = "Câncer";
+            } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
+                result = "Leão";
+            } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
+                result = "Virgem";
+            } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
+                result = "Libra";
+            } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
+                result = "Escorpião";
+            } else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
+                result = "Sagitário";
+            } else if ((month == 12 && day >= 22) || (month == 1 && day <= 20)) {
+                result = "Capricórnio";
+            } else if ((month == 1 && day >= 21) || (month == 2 && day <= 18)) {
+                result = "Aquário";
+            } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+                result = "Peixes";
+            } else {
+                result = "Data de nascimento inválida";
+            }
+
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
+
+</html>

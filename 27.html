@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 27</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="word">Palavra:</label>
+        <input type="text" id="word">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="result">Saída:</label>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function calc() {
+            let word = document.getElementById("word").value.toLowerCase();
+
+            word = word.replace(/\s/g, "").toLowerCase();
+
+            const reversedWord = word.split("").reverse().join("");
+
+            if (word === reversedWord) {
+                document.getElementById("result").value = "É palíndroma.";
+            } else {
+                document.getElementById("result").value = "Não é palíndroma.";
+            }
+        }
+    </script>
+</body>
+
+</html>

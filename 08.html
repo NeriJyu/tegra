@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 08</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="a">Digite a medida A:</label>
+        <input type="number" id="a">
+
+        <label for="b">Digite a medida B:</label>
+        <input type="number" id="b">
+
+        <label for="c">Digite a medida C:</label>
+        <input type="number" id="c">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="square">Área do quadrado:</label>
+    <input type="number" id="square" disabled>
+
+    <label for="triangle">Área do triângulo:</label>
+    <input type="number" id="triangle" disabled>
+
+    <label for="trapeze">Área do trapézio:</label>
+    <input type="number" id="trapeze" disabled>
+
+    <script>
+        function calc() {
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+            const c = parseFloat(document.getElementById("c").value);
+
+            const square = a ** 2
+            const triangle = (a * b) / 2
+            const trapeze = ((a + b) * c) / 2
+
+            document.getElementById("a").value = a.toFixed(1);
+            document.getElementById("b").value = b.toFixed(1);
+            document.getElementById("c").value = c.toFixed(1);
+            document.getElementById("square").value = square.toFixed(4);
+            document.getElementById("triangle").value = triangle.toFixed(4);
+            document.getElementById("trapeze").value = trapeze.toFixed(4);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 29</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="result">Saída:</label>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function calc() {
+            const cnpj = document.getElementById('cnpj').value;
+            const cnpjClean = cnpj.replace(/[^\d]+/g, '');
+
+            if (cnpjClean.length !== 14 || /^\d{14}$/.test(cnpjClean) === false)
+                return document.getElementById("result").value = `Inválido.`;
+
+            let size = cnpjClean.length - 2;
+            let numbers = cnpjClean.substring(0, size);
+            let digits = cnpjClean.substring(size);
+            let calc = 0;
+            let pos = size - 7;
+
+            for (let i = size; i >= 1; i--) {
+                calc += numbers.charAt(size - i) * pos--;
+                if (pos < 2) pos = 9;
+            }
+
+            let result = calc % 11 < 2 ? 0 : 11 - calc % 11;
+
+            if (result != digits.charAt(0))
+                return document.getElementById("result").value = `Inválido.`;
+
+
+            size = size + 1;
+            numbers = cnpjClean.substring(0, size);
+            calc = 0;
+            pos = size - 7;
+
+            for (let i = size; i >= 1; i--) {
+                calc += numbers.charAt(size - i) * pos--;
+                if (pos < 2) pos = 9;
+            }
+            result = calc % 11 < 2 ? 0 : 11 - calc % 11;
+            if (result != digits.charAt(1)) {
+                document.getElementById("result").value = `Inválido.`;
+            } else {
+                document.getElementById("result").value = `Válido.`;
+            }
+        }
+    </script>
+</body>
+
+</html>

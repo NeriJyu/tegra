@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 16</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="firstDistance">Informe a primeira distância:</label>
+        <input type="number" id="firstDistance">
+
+        <label for="secondDistance">Informe a primeira distância:</label>
+        <input type="number" id="secondDistance">
+
+        <label for="thirdDistance">Informe a primeira distância:</label>
+        <input type="number" id="thirdDistance">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="result">Maior distância:</label>
+    <input type="number" id="result" disabled>
+
+    <script>
+        function calc() {
+            const firstDistance = parseFloat(document.getElementById("firstDistance").value);
+            const secondDistance = parseFloat(document.getElementById("secondDistance").value);
+            const thirdDistance = parseFloat(document.getElementById("thirdDistance").value);
+
+            const result = Math.max(firstDistance, secondDistance, thirdDistance);
+
+            document.getElementById("firstDistance").value = firstDistance.toFixed(2);
+            document.getElementById("secondDistance").value = secondDistance.toFixed(2);
+            document.getElementById("thirdDistance").value = thirdDistance.toFixed(2);
+            document.getElementById("result").value = result.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

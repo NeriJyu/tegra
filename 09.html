@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 09</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="duration">Digite a duração em segundos:</label>
+        <input type="number" id="duration">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label id="result"></label>
+
+    <script>
+        function calc() {
+            const duration = parseFloat(document.getElementById("duration").value);
+
+            const hours = Math.floor(duration / 3600)
+            const minutes = Math.floor((duration % 3600) / 60)
+            const seconds = duration % 60
+
+            const message = `${hours}:${minutes}:${seconds}`
+
+            document.getElementById("result").textContent = message;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 19</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="salary">Digite o salario da pessoa:</label>
+        <input type="number" id="salary">
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="newSalary">Novo salário:</label>
+    <input type="number" id="newSalary" disabled>
+
+    <label for="increase">Aumento:</label>
+    <input type="number" id="increase" disabled>
+
+    <label for="percentage">Porcentagem:</label>
+    <input type="text" id="percentage" disabled>
+
+    <script>
+        function calc() {
+            const salary = parseFloat(document.getElementById("salary").value);
+
+            let newSalary, increase, percentage;
+
+            if (salary <= 999.00) {
+                newSalary = salary * 1.20;
+                increase = salary * 0.20;
+                percentage = 20;
+            } else if (salary <= 2999.00) {
+                newSalary = salary * 1.15;
+                increase = salary * 0.15;
+                percentage = 15;
+            } else if (salary <= 7999.00) {
+                newSalary = salary * 1.10;
+                increase = salary * 0.10;
+                percentage = 10;
+            } else {
+                newSalary = salary * 1.05;
+                increase = salary * 0.05;
+                percentage = 5;
+            }
+
+            document.getElementById("salary").value = salary.toFixed(2);
+            document.getElementById("newSalary").value = newSalary.toFixed(2);
+            document.getElementById("increase").value = increase.toFixed(2);
+            document.getElementById("percentage").value = `${percentage}%`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 28</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label for="firstValue">Digite o primeiro número:</label>
+        <input type="number" id="firstValue">
+        <br />
+        
+        <label for="secondValue">Digite o segundo número:</label>
+        <input type="number" id="secondValue">
+        <br />
+        
+        <label for="thirdValue">Digite o terceiro número:</label>
+        <input type="number" id="thirdValue">
+        <br />
+        
+        <label for="fourthValue">Digite o quarto número:</label>
+        <input type="number" id="fourthValue">
+        <br />
+        
+        <label for="fifthValue">Digite o quinto número:</label>
+        <input type="number" id="fifthValue">
+        <br />
+
+        <button type="button" onclick="calc()">Calcular</button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+    <label for="result">Saída:</label>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function calc() {
+            const firstValue = parseFloat(document.getElementById("firstValue").value);
+            const secondValue = parseFloat(document.getElementById("secondValue").value);
+            const thirdValue = parseFloat(document.getElementById("thirdValue").value);
+            const fourthValue = parseFloat(document.getElementById("fourthValue").value);
+            const fifthValue = parseFloat(document.getElementById("fifthValue").value);
+
+            let min = firstValue;
+            let max = firstValue;
+
+            if (secondValue < min) {
+                min = secondValue;
+            } else if (secondValue > max) {
+                max = secondValue;
+            }
+            if (thirdValue < min) {
+                min = thirdValue;
+            } else if (thirdValue > max) {
+                max = thirdValue;
+            }
+            if (fourthValue < min) {
+                min = fourthValue;
+            } else if (fourthValue > max) {
+                max = fourthValue;
+            }
+            if (fifthValue < min) {
+                min = fifthValue;
+            } else if (fifthValue > max) {
+                max = fifthValue;
+            }
+
+            document.getElementById("result").value = `${min} e ${max}`;
+        }
+    </script>
+</body>
+
+</html>
